@@ -1,0 +1,21 @@
+<ul class="nav nav-pills">
+  <li>
+    <%= link_to('New Recipe', new_recipe_path) %>
+  </li>
+</ul>
+
+
+<% @recipes.each do |recipe| %>
+  <div class="row">
+     <div class="col-md-4 col-sm-4">
+      <p class="lead"><%= link_to(recipe.name, recipe) %>
+      <p>Course: <%= recipe.course %>
+      <p>Cook time: <%= recipe.cooktime %>
+      <p>Serving size: <%= recipe.servingsize %>
+      <p><strong>Instructions:</strong><br> <%= recipe.instructions %>
+    </div>
+     <div class="col-md-8 col-sm-8">
+      <p><%= image_tag(recipe.image) %>
+    </div>
+  </div>
+<% end %>
