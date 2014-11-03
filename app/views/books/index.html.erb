@@ -8,7 +8,7 @@
 <% @books.each do |book| %>
   <div class="row">
      <div class="col-md-3 col-sm-3">
-      <p class="lead"><%= link_to(book.title, book) %></p>
+      <p class="lead"><%= link_to(book.title, book, {:class=> "book_link_style"}) %></p>
       <p class="text-info"><%= book.cuisine %></p>
       <p class="text-warning"><%= book.chef %></p>
     </div>
