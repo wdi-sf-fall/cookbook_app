@@ -1,7 +1,7 @@
 
 
 <ul class="nav nav-pills">
-  <li><%= link_to('New Book', new_book_path) %></li>
+  <li><%= link_to 'New Book', new_book_path  %></li>
   <li><%= link_to('Delete Book', @book, :method => :delete, :confirm => 'Are you sure?') %></li>
   <li><%= link_to('Edit Book', edit_book_path(@book)) %></li>
 </ul>
@@ -18,5 +18,20 @@
 </div>
 
 <br>
+
 <!-- SHOW LIST OF RECEPIES HERE -->
+<% @book.recipes.each do |recipe| %>
+
+ <div class="row">
+    <div class="col-md-5 col-sm-5">
+      <p class="lead"><%= recipe.name %></p>
+      <%= image_tag(recipe.image) %>
+    </div>
+
+
+<% end %>
+
+
+
+
 

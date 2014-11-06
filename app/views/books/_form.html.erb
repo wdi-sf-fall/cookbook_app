@@ -25,7 +25,14 @@
   <%= f.label :image %>
   <%= f.text_field :image %>
   <br>
-  <!-- RECEPIE SELECTS GO HERE -->
+  <div class="input-group">
+<% Recipe.order(:name).each do |recipe| %>
+   <span class="input-group-addon">
+    <%= recipe.name %>
+    <%= check_box_tag 'book[recipe_ids][]', recipe.id, recipe.in?(@book.recipes), {class: "checkbox inline"} %>
+    </span>
+<% end %>
+</div>
   <p>
   <%= f.submit class: "btn btn-primary" %>
 <% end %>
