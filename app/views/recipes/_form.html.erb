@@ -39,6 +39,27 @@
     <%= f.label :book_id %><br>
     <%= f.number_field :book_id %>
   </div>
+
+  <h1> Ingredients select goes here </h1>
+  
+  <div class="input-group">
+
+  <% Ingredient.order(:name).each do |ingredient| %>
+
+  <span class="input-group-addon">
+
+
+  <%= ingredient.name %>
+
+  <%= check_box_tag('recipe[ingredient_ids][]', ingredient.id, ingredient.in?(@recipe.ingredients), {class: "checkbox inline"}) %>
+  
+
+  </span>
+
+  <% end %>
+
+</div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

@@ -8,10 +8,13 @@
 <div class="row">
   <div class="col-md-5 col-sm-5">
     <p class="lead"><%= @recipe.name %></p>
-    <%= image_tag(@recipe.image) %>
+    <%= image_tag(@recipe.image, size: "40x40") %>
   </div>
 
   <div class="col-md-7 col-sm-7">
-   <!-- Ingredients go here -->
+   <% @recipe.ingredients.each do |ingredient|  %>
+      <p><%= ingredient.name %></p>
+      <%= image_tag(ingredient.image, size: "40x40")  %>
+   <% end %>
   </div>
  </div>
